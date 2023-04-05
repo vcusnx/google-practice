@@ -5,7 +5,7 @@
  */
 SpreadsheetApp.getUi()
   .createMenu('Weather')
-  .addItem('(⊙_⊙)？Update', 'fillSheet')
+  .addItem('Update', 'fillSheet')
   .addToUi();
 
 /**
@@ -18,7 +18,7 @@ SpreadsheetApp.getUi()
  * Возвращает массив для заполнения таблицы
  */
 function getData() {
-  let todayTemp = getJSON(WEATHER).main.temp - 273.15; // Конвертация в градусы
+  let todayTemp = getJSON(WEATHER).main.temp - 273.15;
   let feelsLike = getJSON(WEATHER).main.feels_like - 273.15;
   let weatherDesc = getJSON(WEATHER).weather[0]['description'];
 
@@ -33,6 +33,7 @@ function getData() {
  * Вторичное заполнение - контент в соответствии с названием таблицы
  */
 function fillSheet() {
+  
   // Получение доступа к текущей таблице
   let spreadsheet = SpreadsheetApp.getActiveSheet();
 
