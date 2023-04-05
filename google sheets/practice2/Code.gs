@@ -1,20 +1,35 @@
-DocumentApp.getUi()
-  .createMenu('Этот документ')
-  .addItem('Копировать документ', 'copyDocument')
-  .addSeparator()
-  .addItem('Сохранить как PDF', 'saveAsPdf')
-  .addItem('Отправить по почте', 'sendViaMail')
-  .addItem('Заполнить плейсхолдеры', 'fillPlaceholders')
-  .addToUi();
-
+function onOpen() {
+  DocumentApp.getUi()
+    .createMenu('This Document')
+    .addItem('Copy Document', 'copyDocument')
+    .addItem('Save as PDF', 'saveAsPdf')
+    .addItem('Send via e-mail', 'sendViaMail')
+    .addItem('Fill Placeholders', 'fillPlaceholders')
+    .addToUi();
+}
+  
+/**
+ * Заполняет плейсхолдеры
+ * 
+ * Сперва получается доступ к таблице через URL
+ * 
+ * Затем получаем доступ к конкретному Документу и его содержанию
+ * 
+ * Получаем данные из определенной области, затем заменяем плейсхолдеры
+ * 
+  */
 function fillPlaceholders() {
-  let sheet = SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/1FXe-R-Vt5ipY6ES3sGS5kXCzWWb5i-P8QaEGBTqwle4/');
+
+  // Доступ к таблице
+  const sheet = SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/');
+  
+  // Доступ к документу
   let document = DocumentApp.getActiveDocument().getBody();
+  
+  // Значния из выделенной области
+  const data = sheet.getRange('A1:B4').getValues();
 
-  let data = sheet.getRange('A1:B4').getValues();
-
-  Logger.log(data);
-
+  // Замена плейсхолдеров
   document.replaceText('{template}', 'шаблонный');
   document.replaceText('{weather}', sheet.getName());
 
