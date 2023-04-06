@@ -1,6 +1,6 @@
 # Производственная практика
 
-[https://trello.com/1/cards/642bdfd79f8fe619f25f95be/attachments/642d5f0317f7b1cec126af75/download/2.jpg]
+[Два мужика показывают чето](https://trello.com/1/cards/642bdfd79f8fe619f25f95be/attachments/642d5f0317f7b1cec126af75/download/2.jpg)
 
 Работа с сервисами Google с использованием Google Apps Script
 
