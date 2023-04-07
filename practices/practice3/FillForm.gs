@@ -3,7 +3,7 @@
  */
 function fillForm() {
 
-  // Создание полей с единственным выбором
+  // Создает поля с единственным вариантом выбора
   for (var i = 0; i < ONE.length; i++) {
     form.addMultipleChoiceItem()
       .setTitle(QUESTIONS_ONE_ANSWER[[i]])
@@ -11,13 +11,13 @@ function fillForm() {
       .setRequired(true);
   }
 
-  // Создание полей с множественным выбором
+  // Создает поля с множественными варинтами выбора
   form.addCheckboxItem()
     .setTitle(QUESTION_MULTIPLE_ANSWERS)
     .setChoiceValues(LANGUAGES)
     .setRequired(true);
 
-  // Создание полей с вводом текста
+  // Создает поля с текстовыми полями
   for (var i = 0; i < QUESTIONS_WRITING.length; i++) {
     form.addTextItem()
       .setTitle(QUESTIONS_WRITING[[i]])
